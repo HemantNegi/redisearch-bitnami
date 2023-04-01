@@ -10,12 +10,17 @@ global:
   redis:
     password: ""
 
+image:
+    repository: "hemantnegi/redisearch"
+    tag: 2.6.8
+
 commonConfiguration: |-
   # Enable AOF https://redis.io/topics/persistence#append-only-file
   appendonly yes
   # Disable RDB persistence, AOF persistence already enabled.
   save ""
   
+  # We will need to manually load these modules.
   loadmodule /usr/lib/redis/modules/redisearch.so
   loadmodule /usr/lib/redis/modules/rejson.so
 
